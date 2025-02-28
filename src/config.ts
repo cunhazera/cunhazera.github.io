@@ -54,6 +54,6 @@ export const SOCIALS: SocialObjects = [
     name: "X",
     href: "https://x.com/cunhazera",
     linkTitle: `${SITE.title} on X`,
-    active: false,
+    active: true,
   }
 ];
