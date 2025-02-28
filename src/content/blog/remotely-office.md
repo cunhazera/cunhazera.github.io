@@ -13,4 +13,4 @@ description:
   theme.
 ---
 
-Here are some rules/recommendations, tips & ticks for creating new posts in AstroPaper blog theme.
+Here are some rules/recommendations, tips & ticks for creating new posts in AstroPaper blog theme!
