@@ -45,24 +45,6 @@ const socialCount = SOCIALS.filter(social => social.active).length;
         Hey!<br>
         I'm Gabriel (aka Cunha), a software engineer based in Brazil, working remotely to a US-based company (and helping others to do the same!)
       </p>
-      <p>
-        Read the blog posts or check
-        <LinkButton
-          className="underline decoration-dashed underline-offset-4 hover:text-skin-accent"
-          href="https://github.com/satnaing/astro-paper#readme"
-        >
-          README
-        </LinkButton> for more info.
-      </p>
-      {
-        // only display if at least one social link is enabled
-        socialCount > 0 && (
-          <div class="social-wrapper">
-            <div class="social-links">Social Links:</div>
-            <Socials />
-          </div>
-        )
-      }
     </section>
 
     <Hr />
