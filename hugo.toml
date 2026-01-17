@@ -2,6 +2,10 @@ baseURL = 'https://gohugo.io/'
 languageCode = 'en-us'
 theme = "nightfall"
 
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
+
 [module]
 [[module.imports]]
   path = 'nightfall'
