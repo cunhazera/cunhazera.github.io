@@ -24,6 +24,8 @@ jobs:
       NODE_VERSION: 24.12.0
       TZ: Europe/Oslo
     steps:
+      - name: Install Dart Sass
+        run: sudo snap install dart-sass
       - name: Checkout
         uses: actions/checkout@v6
         with:
