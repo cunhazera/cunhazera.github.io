@@ -1,0 +1,4 @@
+[submodule "themes/nightfall"]
+    path = themes/nightfall
+    url = https://github.com/your-theme-author/nightfall.git
+
