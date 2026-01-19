@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title></title>
-    <link>http://localhost:65422/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content on </description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <managingEditor>email@example.com (cunhazera dev blog)</managingEditor>
     <webMaster>email@example.com (cunhazera dev blog)</webMaster>
     <lastBuildDate>Sun, 18 Jan 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:65422/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About</title>
-      <link>http://localhost:65422/about/</link>
+      <link>http://localhost:1313/about/</link>
       <pubDate>Sun, 18 Jan 2026 00:00:00 +0000</pubDate><author>email@example.com (cunhazera dev blog)</author>
-      <guid>http://localhost:65422/about/</guid>
+      <guid>http://localhost:1313/about/</guid>
       <description>&lt;p&gt;Hey, there! I&amp;rsquo;m Gabriel, a software engineer, with over 10 years of experience, focused on backend development with JVM-languages.&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;m particularly interested in building applications with Java, Spring/Quarkus and Hibernate.&lt;/p&gt;&#xA;&lt;p&gt;If you want to connect with me, follow/add me in my socials:&lt;/p&gt;&#xA;&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;qme&#34; dir=&#34;ltr&#34;&gt;💻 &lt;a href=&#34;https://t.co/dcyMtqt8w8&#34;&gt;https://t.co/dcyMtqt8w8&lt;/a&gt;&lt;br&gt;🔗 &lt;a href=&#34;https://t.co/HRQdqJ9EDi&#34;&gt;https://t.co/HRQdqJ9EDi&lt;/a&gt;&lt;/p&gt;&amp;mdash; Gabriel Cunha (@cunhazera) &lt;a href=&#34;https://twitter.com/cunhazera/status/2013048283841630652?ref_src=twsrc%5Etfw&#34;&gt;January 19, 2026&lt;/a&gt;&lt;/blockquote&gt;&#xA;&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&#xA;&#xA;&#xA;&lt;p&gt;Is there anything I can help? Consulting, mentorship, just a quick chat about tech and career? &#xA;&lt;a href=&#34;https://calendly.com/cunhazera/30min&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Book a time&lt;/a&gt;&#xA; and let&amp;rsquo;s talk!&lt;/p&gt;</description>
     </item>
   </channel>
