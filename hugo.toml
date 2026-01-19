@@ -71,9 +71,3 @@ name = "linkedin"
 url = "https://www.linkedin.com/in/gabrieldcunha/"
 target = "_blank"
 aria = "LinkedIn Profile"
-
-[[params.social]]
-key = 3
-name = "email"
-url = "mailto:cunha.gabriel919@gmail.com"
-aria = "My e-Mail Address"
