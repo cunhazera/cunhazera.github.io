@@ -1,7 +1,7 @@
 +++
 author = "Hugo Authors"
-title = "Rich Content"
-date = "2019-03-10"
+title = "Rich Content 2"
+date = "2026-01-01"
 description = "A brief description of Hugo Shortcodes"
 tags = [
     "shortcodes",
@@ -23,7 +23,7 @@ Hugo ships with several [Embedded Shortcodes](https://gohugo.io/content-manageme
 
 ## X Simple Shortcode
 
-{{< x id="1085870671291310081" user="DesignReviewed" >}}
+{{< x id="2013048283841630652" user="DesignReviewed" >}}
 
 <br>
 

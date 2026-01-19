@@ -1,25 +1,17 @@
 +++
 title = "About"
-description = "Hugo, the world's fastest framework for building websites"
-date = "2019-02-28"
+description = "Welcome to my personal blog!"
+date = "2026-01-18"
 aliases = ["about-us", "about-hugo", "contact"]
-author = "Hugo Authors"
+author = "Gabriel da Cunha"
 +++
 
-Written in Go, Hugo is an open source static site generator available under the [Apache Licence 2.0.](https://github.com/gohugoio/hugo/blob/master/LICENSE) Hugo supports TOML, YAML and JSON data file types, Markdown and HTML content files and uses shortcodes to add rich content. Other notable features are taxonomies, multilingual mode, image processing, custom output formats, HTML/CSS/JS minification and support for Sass SCSS workflows.
+Hey, there! I'm Gabriel, a software engineer, with over 10 years of experience, focused on backend development with JVM-languages.
 
-Hugo makes use of a variety of open source projects including:
+I'm particularly interested in building applications with Java, Spring/Quarkus and Hibernate.
 
-* https://github.com/yuin/goldmark
-* https://github.com/alecthomas/chroma
-* https://github.com/muesli/smartcrop
-* https://github.com/spf13/cobra
-* https://github.com/spf13/viper
+If you want to connect with me, follow/add me in my socials:
 
-Hugo is ideal for blogs, corporate websites, creative portfolios, online magazines, single page applications or even a website with thousands of pages.
+{{< x id="2013048283841630652" user="DesignReviewed" >}}
 
-Hugo is for people who want to hand code their own website without worrying about setting up complicated runtimes, dependencies and databases.
-
-Websites built with Hugo are extremely fast, secure and can be deployed anywhere including, AWS, GitHub Pages, Heroku, Netlify and any other hosting provider.
-
-Learn more and contribute on [GitHub](https://github.com/gohugoio).
+Is there anything I can help? Consulting, mentorship, just a quick chat about tech and career? [Book a time](https://calendly.com/cunhazera/30min) and let's talk!

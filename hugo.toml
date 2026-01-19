@@ -27,10 +27,6 @@ pagerSize = 3
     name = "about"
     weight = 1
     url = "about"
-  [[menu.header]]
-    name = "posts"
-    weight = 0
-    url = "/posts"
 
 [params]
 user = "cunhazera"
