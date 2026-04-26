@@ -8,14 +8,14 @@
     <language>en-us</language>
     <managingEditor>email@example.com (cunhazera dev blog)</managingEditor>
     <webMaster>email@example.com (cunhazera dev blog)</webMaster>
-    <lastBuildDate>Wed, 25 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 26 Apr 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Working remotely from the office</title>
       <link>http://localhost:1313/post/remote-from-office/</link>
-      <pubDate>Wed, 25 Feb 2026 00:00:00 +0000</pubDate><author>email@example.com (cunhazera dev blog)</author>
+      <pubDate>Sun, 26 Apr 2026 00:00:00 +0000</pubDate><author>email@example.com (cunhazera dev blog)</author>
       <guid>http://localhost:1313/post/remote-from-office/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;ve been working remotely since the pandemic. Actually, that was a few months before the first lockdown, when I started collaborating with a different team, in the same company, but from a different city. I was the only person from the team in Joinville, so it made sense to stay at home.&lt;/p&gt;&#xA;&lt;p&gt;Before deciding not going to the office anymore, late in 2019, I had questions on how productive I could be not working from an office.&#xA;But after March 2020, there was no going back, specially after I started working with US-based companies. So basically, I had to learn how to handle distractions, procrastination and other variables you have when you&amp;rsquo;re at work and at home at the same time. That&amp;rsquo;s the Schrödinger Software Engineer cat: you&amp;rsquo;re both at home and at work, until you close the laptop.&lt;/p&gt;</description>
+      <description>&lt;p&gt;My thoughts on remote work, office and how important it was to me to be connected with other engineers&lt;/p&gt;</description>
     </item>
     <item>
       <title>About</title>
