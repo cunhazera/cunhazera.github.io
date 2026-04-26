@@ -1,0 +1,28 @@
+{{- $id := .Get "id" -}}
+{{- $user := .Get "user" -}}
+{{- $url := printf "https://publish.twitter.com/oembed?url=https://twitter.com/%s/status/%s&omit_script=true" $user $id -}}
+{{- with try (resources.GetRemote $url) -}}
+  {{- with .Err -}}
+    {{- errorf "Unable to get tweet %s: %s" $id . -}}
+  {{- else -}}
+    <div id="tweet-{{ $id }}">
+      {{- (.Value.Content | transform.Unmarshal).html | safeHTML -}}
+    </div>
+    <script>
+      (function () {
+        var el = document.getElementById('tweet-{{ $id }}');
+        var loaded = false;
+        new IntersectionObserver(function (entries, obs) {
+          if (entries[0].isIntersecting && !loaded) {
+            loaded = true;
+            var s = document.createElement('script');
+            s.src = 'https://platform.twitter.com/widgets.js';
+            s.async = true;
+            document.head.appendChild(s);
+            obs.disconnect();
+          }
+        }).observe(el);
+      })();
+    </script>
+  {{- end -}}
+{{- end -}}
