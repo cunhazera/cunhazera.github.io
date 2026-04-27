@@ -1,5 +1,6 @@
-baseURL = 'https://gohugo.io/'
+baseURL = 'https://cunhazera.com/'
 languageCode = 'en-us'
+title = 'cunhazera'
 theme = "nightfall"
 
 [caches]
