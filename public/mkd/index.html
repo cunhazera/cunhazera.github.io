@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mkd — Markdown viewer for your terminal</title>
+  <meta name="description" content="A fast terminal Markdown viewer with syntax highlighting, clickable links, and a clean reading experience.">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <meta property="og:title" content="mkd — Markdown viewer for your terminal">
+  <meta property="og:description" content="Syntax highlighting, clickable links, and a clean reading experience — right in your terminal.">
+  <meta property="og:image" content="https://cunhazera.com/mkd/logo.svg">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:           #0d1017;
+      --surface:      #161b22;
+      --surface2:     #1c2128;
+      --border:       #30363d;
+      --text:         #c9d1d9;
+      --text-dim:     #6e7681;
+      --text-muted:   #484f58;
+      --accent:       #7c3aed;
+      --accent-light: #a78bfa;
+      --green:        #3fb950;
+      --mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--mono);
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ─────────────────────────────────────────────────── */
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 48px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo img {
+      height: 28px;
+      width: 28px;
+      display: block;
+    }
+
+    .nav-link {
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.15s;
+    }
+
+    .nav-link:hover { color: var(--text); }
+
+    /* ── HERO ────────────────────────────────────────────────── */
+
+    .hero {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 80px 48px 72px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 11px;
+      color: var(--accent-light);
+      border: 1px solid #7c3aed44;
+      background: #7c3aed12;
+      border-radius: 999px;
+      padding: 3px 12px;
+      margin-bottom: 28px;
+      letter-spacing: 0.5px;
+    }
+
+    h1 {
+      font-size: clamp(30px, 5vw, 50px);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.15;
+      letter-spacing: -2px;
+      margin-bottom: 16px;
+    }
+
+    .hero-sub {
+      color: var(--text-dim);
+      font-size: 15px;
+      max-width: 440px;
+      margin: 0 auto 44px;
+      line-height: 1.75;
+    }
+
+    /* ── INSTALL BAR ─────────────────────────────────────────── */
+
+    .install-wrap {
+      display: inline-flex;
+      align-items: center;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 72px;
+    }
+
+    .install-prefix {
+      padding: 11px 14px;
+      color: var(--text-muted);
+      border-right: 1px solid var(--border);
+      font-size: 13px;
+      user-select: none;
+    }
+
+    .install-cmd {
+      padding: 11px 18px;
+      color: var(--text);
+      font-size: 13px;
+    }
+
+    .copy-btn {
+      padding: 11px 14px;
+      background: none;
+      border: none;
+      border-left: 1px solid var(--border);
+      color: var(--text-dim);
+      cursor: pointer;
+      font-family: var(--mono);
+      font-size: 12px;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .copy-btn:hover { background: var(--surface2); color: var(--text); }
+    .copy-btn.copied { color: var(--green); }
+
+    /* ── TERMINAL MOCKUP ─────────────────────────────────────── */
+
+    .terminal-wrap {
+      max-width: 780px;
+      margin: 0 auto;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.03),
+        0 24px 64px rgba(0,0,0,0.55),
+        0 4px 16px rgba(0,0,0,0.4);
+      text-align: left;
+    }
+
+    .term-titlebar {
+      background: #1c2128;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .term-dots { display: flex; gap: 6px; }
+
+    .term-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .dot-red    { background: #ff5f57; }
+    .dot-yellow { background: #febc2e; }
+    .dot-green  { background: #28c840; }
+
+    .term-title {
+      flex: 1;
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+
+    .term-body {
+      background: #0d1017;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    /* Replica of the mkd TUI chrome */
+    .tui-bar {
+      background: #161b22;
+      padding: 5px 18px;
+      font-weight: 700;
+      color: #e6edf3;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tui-divider {
+      color: #30363d;
+      padding: 0 18px 4px;
+      letter-spacing: -1px;
+      font-size: 12px;
+    }
+
+    .tui-content {
+      padding: 4px 0 8px;
+    }
+
+    /* Terminal line primitives */
+    .ln {
+      padding: 0 18px;
+      min-height: 1.55em;
+      white-space: pre;
+    }
+
+    /* ANSI colour approximations */
+    .fw { color: #e6edf3; }           /* bright white — headings */
+    .fc { color: #d0d0d0; }           /* color 252  — body text  */
+    .fd { color: #767676; }           /* dim — comments          */
+    .fb { font-weight: 700; }
+    .fi { font-style: italic; }
+
+    .kw { color: #ff7b72; }           /* keyword  */
+    .st { color: #a5d6ff; }           /* string   */
+    .fn { color: #d2a8ff; }           /* function */
+    .cm { color: #8b949e; }           /* comment  */
+    .nu { color: #79c0ff; }           /* number   */
+
+    .lk {                             /* link     */
+      color: #58a6ff;
+      text-decoration: underline;
+    }
+
+    .ic {                             /* inline code */
+      background: #2a1f3d;
+      color: #c792ea;
+      padding: 0 4px;
+      border-radius: 3px;
+    }
+
+    .cb {                             /* code block  */
+      background: #1c1f26;
+      padding: 4px 0;
+      margin: 3px 0;
+    }
+
+    .hl {                             /* search highlight */
+      background: #ffd700;
+      color: #1c1c1c;
+    }
+
+    .tui-footer {
+      background: #161b22;
+      border-top: 1px solid var(--border);
+      padding: 5px 18px;
+      font-size: 12px;
+      color: #767676;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    /* ── FEATURES ────────────────────────────────────────────── */
+
+    .features {
+      max-width: 900px;
+      margin: 96px auto;
+      padding: 0 48px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--text-muted);
+      margin-bottom: 36px;
+      text-align: center;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .card {
+      background: var(--bg);
+      padding: 28px 28px 32px;
+      transition: background 0.15s;
+    }
+
+    .card:hover { background: var(--surface); }
+
+    .card-glyph {
+      display: block;
+      font-size: 17px;
+      color: var(--accent-light);
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .card-title {
+      font-weight: 700;
+      color: #e6edf3;
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    .card-desc {
+      color: var(--text-dim);
+      font-size: 12.5px;
+      line-height: 1.75;
+    }
+
+    /* ── FOOTER ──────────────────────────────────────────────── */
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 22px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    footer a {
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    footer a:hover { color: var(--text); }
+
+    /* ── RESPONSIVE ──────────────────────────────────────────── */
+
+    @media (max-width: 720px) {
+      nav, footer { padding: 16px 24px; }
+      .hero { padding: 52px 24px 48px; }
+      .features { padding: 0 24px; margin: 64px auto; }
+      .grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 8px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo"><img src="logo.svg" alt="mkd"></div>
+    <a class="nav-link" href="https://github.com/cunhazera/mkd" target="_blank" rel="noopener">
+      <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+      </svg>
+      GitHub
+    </a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="badge">open source · written in Go · MIT license</div>
+
+    <h1>Read Markdown.<br>In your terminal.</h1>
+
+    <p class="hero-sub">
+      mkd renders Markdown with syntax-highlighted code, clickable links,
+      and a clean scrollable layout — right where you already are.
+    </p>
+
+    <div class="install-wrap">
+      <span class="install-prefix">$</span>
+      <span class="install-cmd" id="install-text">brew install --cask cunhazera/tap/mkd</span>
+      <button class="copy-btn" id="copy-btn" onclick="copyInstall()" aria-label="Copy install command">copy</button>
+    </div>
+
+    <!-- TERMINAL MOCKUP -->
+    <div class="terminal-wrap" aria-hidden="true">
+      <div class="term-titlebar">
+        <div class="term-dots">
+          <div class="term-dot dot-red"></div>
+          <div class="term-dot dot-yellow"></div>
+          <div class="term-dot dot-green"></div>
+        </div>
+        <div class="term-title">mkd README.md</div>
+        <div style="width:44px"></div>
+      </div>
+
+      <div class="term-body">
+        <div class="tui-bar">README.md</div>
+        <div class="tui-divider">────────────────────────────────────────────────────────────────────────────────</div>
+
+        <div class="tui-content">
+          <div class="ln"></div>
+          <div class="ln"><span class="fw fb">  ══════════════════════════════════════════════════════════════════</span></div>
+          <div class="ln"><span class="fw fb">  mkd</span></div>
+          <div class="ln"><span class="fw fb">  ══════════════════════════════════════════════════════════════════</span></div>
+          <div class="ln"></div>
+          <div class="ln"><span class="fc">  A terminal Markdown viewer with syntax highlighting, clickable</span></div>
+          <div class="ln"><span class="fc">  links, and a clean reading experience.</span></div>
+          <div class="ln"></div>
+          <div class="ln"><span class="fw fb">  ## Install</span></div>
+          <div class="ln"></div>
+          <div class="cb">
+            <div class="ln"><span class="cm">  # via Homebrew</span></div>
+            <div class="ln"><span class="kw">  brew</span><span class="fc"> install --cask </span><span class="st">cunhazera/tap/mkd</span></div>
+          </div>
+          <div class="ln"></div>
+          <div class="ln"><span class="fw fb">  ## Usage</span></div>
+          <div class="ln"></div>
+          <div class="cb">
+            <div class="ln"><span class="kw">  mkd</span><span class="fc"> README.md</span></div>
+          </div>
+          <div class="ln"></div>
+          <div class="ln"><span class="fc">  Press <span class="ic">/</span> to search, <span class="ic">n</span>/<span class="ic">N</span> to jump between <span class="hl">matches</span>.</span></div>
+          <div class="ln"><span class="fc">  Source: <span class="lk">github.com/cunhazera/mkd</span></span></div>
+          <div class="ln"></div>
+        </div>
+
+        <div class="tui-footer">
+          &nbsp;&nbsp;↑/↓ j/k&nbsp;&nbsp;•&nbsp;&nbsp;l/p page&nbsp;&nbsp;•&nbsp;&nbsp;g/G top/bottom&nbsp;&nbsp;•&nbsp;&nbsp;/ search&nbsp;&nbsp;•&nbsp;&nbsp;q quit&nbsp;&nbsp;•&nbsp;&nbsp;34%
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <p class="section-label">// what it does</p>
+    <div class="grid">
+
+      <div class="card">
+        <span class="card-glyph">&lt;/&gt;</span>
+        <div class="card-title">Syntax Highlighting</div>
+        <div class="card-desc">Fenced code blocks rendered with full Chroma highlighting. Sensible language default when none is specified.</div>
+      </div>
+
+      <div class="card">
+        <span class="card-glyph">↗</span>
+        <div class="card-title">Clickable Links</div>
+        <div class="card-desc">Links rendered as OSC 8 terminal hyperlinks. Click to open in the browser — no mouse capture, no interference.</div>
+      </div>
+
+      <div class="card">
+        <span class="card-glyph">/</span>
+        <div class="card-title">In-document Search</div>
+        <div class="card-desc">Press <span class="ic" style="font-size:11px">/</span> to search, <span class="ic" style="font-size:11px">n</span>/<span class="ic" style="font-size:11px">N</span> to jump between matches. Results highlighted inline as you read.</div>
+      </div>
+
+      <div class="card">
+        <span class="card-glyph">≡</span>
+        <div class="card-title">Full Markdown Support</div>
+        <div class="card-desc">Tables, task lists, blockquotes, strikethrough, inline code, horizontal rules — all rendered with proper visual hierarchy.</div>
+      </div>
+
+      <div class="card">
+        <span class="card-glyph">↕</span>
+        <div class="card-title">Keyboard Navigation</div>
+        <div class="card-desc">Vim keys, arrow keys, scroll wheel, page up/down, g/G for top/bottom. Adapts to any terminal size. Zero config.</div>
+      </div>
+
+      <div class="card">
+        <span class="card-glyph">▌</span>
+        <div class="card-title">Native Text Selection</div>
+        <div class="card-desc">No mouse capture means you can click, drag, and copy any text with your terminal's native selection shortcut.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>mkd &nbsp;·&nbsp; MIT license</span>
+    <a href="https://github.com/cunhazera/mkd" target="_blank" rel="noopener">github.com/cunhazera/mkd</a>
+  </footer>
+
+  <script>
+    function copyInstall() {
+      const text = document.getElementById('install-text').textContent.trim();
+      const btn  = document.getElementById('copy-btn');
+      navigator.clipboard.writeText(text).then(() => {
+        btn.textContent = 'copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = 'copy';
+          btn.classList.remove('copied');
+        }, 2000);
+      }).catch(() => {
+        btn.textContent = 'failed';
+        setTimeout(() => { btn.textContent = 'copy'; }, 2000);
+      });
+    }
+  </script>
+
+</body>
+</html>
