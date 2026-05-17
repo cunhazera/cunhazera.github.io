@@ -10,6 +10,8 @@ Hey, there! I'm Gabriel, a software engineer, with over 10 years of experience, 
 
 I'm particularly interested in building applications with Java, Spring/Quarkus and Hibernate.
 
+I contribute to [OJP](https://github.com/Open-J-Proxy/ojp/) and I ~vibe coded~ created [mkd](https://cunhazera.com/mkd)
+
 If you want to connect with me, follow/add me in my socials:
 
 {{< x id="2013048283841630652" user="DesignReviewed" >}}

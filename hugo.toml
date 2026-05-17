@@ -3,6 +3,10 @@ languageCode = 'en-us'
 title = 'cunhazera'
 theme = "nightfall"
 
+[services]
+  [services.googleAnalytics]
+    ID = 'G-FCC2WJGLRP'
+
 [caches]
   [caches.images]
     dir = ':cacheDir/images'
