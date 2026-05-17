@@ -35,6 +35,9 @@ pagerSize = 3
 
 [params]
 user = "cunhazera"
+
+  [params.styles]
+    color = "purple"
 hostname = "com"
 
 # You can configure external links to open in new tabs by adding this parameter

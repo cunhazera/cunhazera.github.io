@@ -1,0 +1,76 @@
+@use "../utils/variables" as v;
+
+.postDate {
+  color: v.$text-dim;
+  font-size: 13px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.postTitle {
+  @include v.primary-color;
+  text-decoration: none;
+  font-family: v.$fontHeader;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.postHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.postListItem {
+  padding: 20px 24px;
+  border: 1px solid v.$border;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  background: transparent;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.postListItem:hover {
+  border-color: #7c3aed55;
+  background: #7c3aed0a;
+}
+
+.postListLink:hover {
+  text-decoration: none;
+}
+
+.postExcerpt {
+  color: v.$text-dim;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-top: 6px;
+  text-decoration: none;
+}
+
+.readingTime {
+  color: v.$text-dim;
+  font-size: 12px;
+  margin-top: 8px;
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.noDecoration {
+  text-decoration: none;
+}
+
+a,
+a:link,
+a:visited,
+a:active {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}

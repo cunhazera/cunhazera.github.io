@@ -1,0 +1,43 @@
+@use "hugo:vars" as h;
+@use "sass:map";
+
+// Colors
+$bg:        #0d1017;
+$surface:   #161b22;
+$surface2:  #1c2128;
+$border:    #30363d;
+$text:      #c9d1d9;
+$text-dim:  #6e7681;
+
+// Keep old names for theme compat
+$white:            #c9d1d9;
+$black:            #161b22;
+$backgroundDarker: #161b22;
+$backgroundDark:   #0d1017;
+$darkGrey:         #323232;
+
+// Fonts — single mono stack, JetBrains Mono loaded via Google Fonts
+$mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+$fontHeader:    $mono;
+$fontParagraph: $mono;
+$fontCode:      $mono;
+
+// Content
+$breakLarge: 992px;
+$width: 720px;
+
+$primary-colors: (
+    'blue':   #80AADD,
+    'orange': #FFB300,
+    'green':  #3fb950,
+    'red':    #F26E74,
+    'purple': #a78bfa,
+);
+
+@mixin primary-color {
+    @if map.has-key($primary-colors, h.$color) {
+        color: map.get($primary-colors, h.$color);
+    } @else {
+        color: h.$color;
+    }
+}
