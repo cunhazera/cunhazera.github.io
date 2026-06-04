@@ -2,19 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on cunhazera</title>
-    <link>https://cunhazera.com/post/</link>
+    <link>http://localhost:1313/post/</link>
     <description>Recent content in Posts on cunhazera</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <managingEditor>email@example.com (cunhazera dev blog)</managingEditor>
     <webMaster>email@example.com (cunhazera dev blog)</webMaster>
     <lastBuildDate>Sun, 26 Apr 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://cunhazera.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Giving back: relevant open source contributions and where to start</title>
+      <link>http://localhost:1313/post/open-source/</link>
+      <pubDate>Sun, 26 Apr 2026 00:00:00 +0000</pubDate><author>email@example.com (cunhazera dev blog)</author>
+      <guid>http://localhost:1313/post/open-source/</guid>
+      <description>&lt;p&gt;You probably already noticed it, but most libraries and tools that you use to build your applications are open source. Which means that someone started a project and decided to make it collaborative, receiving feedback from others, allowing them to take part in the project&amp;rsquo;s evolution through ideas and code. And most people don&amp;rsquo;t make their living with open source as a full-time job, so committers are very likely using their free time to help shape a library they use.&#xA;That being said, a good portion of your applications points to someone else&amp;rsquo;s work, someone who was trying to fix something for themselves or for the community, even when they didn&amp;rsquo;t have to do so.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Working remotely from the office</title>
-      <link>https://cunhazera.com/post/remote-from-office/</link>
+      <link>http://localhost:1313/post/remote-from-office/</link>
       <pubDate>Sun, 26 Apr 2026 00:00:00 +0000</pubDate><author>email@example.com (cunhazera dev blog)</author>
-      <guid>https://cunhazera.com/post/remote-from-office/</guid>
+      <guid>http://localhost:1313/post/remote-from-office/</guid>
       <description>&lt;p&gt;My thoughts on remote work, office and how important it was to me to be connected with other engineers&lt;/p&gt;</description>
     </item>
   </channel>

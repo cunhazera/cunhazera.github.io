@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on cunhazera</title>
-    <link>https://cunhazera.com/tags/</link>
+    <link>http://localhost:1313/tags/</link>
     <description>Recent content in Tags on cunhazera</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <managingEditor>email@example.com (cunhazera dev blog)</managingEditor>
     <webMaster>email@example.com (cunhazera dev blog)</webMaster>
     <lastBuildDate>Sun, 26 Apr 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://cunhazera.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Index</title>
-      <link>https://cunhazera.com/tags/index/</link>
+      <link>http://localhost:1313/tags/index/</link>
       <pubDate>Sun, 26 Apr 2026 00:00:00 +0000</pubDate><author>email@example.com (cunhazera dev blog)</author>
-      <guid>https://cunhazera.com/tags/index/</guid>
+      <guid>http://localhost:1313/tags/index/</guid>
       <description></description>
     </item>
   </channel>
