@@ -56,8 +56,9 @@ showCategories = true     # Show categories on post page
 
 
   [params.author]
-    name = "Gabriel"
+    name = "Gabriel Cunha"
     email = "cunha.gabriel919@gmail.com"
+    homeTitle = "cunha dev blog"
 
 [[params.social]]
 key = 0
