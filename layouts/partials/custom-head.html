@@ -9,9 +9,9 @@
 {{- $title := .Title | default .Site.Title -}}
 {{- $description := .Description | default .Site.Params.SiteDescription -}}
 {{- $url := .Permalink | strings.TrimPrefix "http://" | printf "https://%s" -}}
-{{- $image := absURL "/images/og-default.jpg" -}}
+{{- $image := absURL "/images/og-social.jpg" | strings.TrimPrefix "http://" | printf "https://%s" -}}
 {{- with .Params.image -}}
-  {{- $image = absURL . -}}
+  {{- $image = absURL . | strings.TrimPrefix "http://" | printf "https://%s" -}}
 {{- end -}}
 
 <!-- Open Graph -->
