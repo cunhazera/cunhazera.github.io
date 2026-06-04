@@ -2,8 +2,17 @@
 author: cunhazera
 title: "Giving back: relevant open source contributions and where to start"
 date: 2026-04-26
-description: A starting point for an open source contribution
+description: A starting point for open source contribution
 ---
+
+
+A starting point for open source contribution
+<!--more-->
+
+
+
+
+
 
 You probably already noticed it, but most libraries and tools that you use to build your applications are open source. Which means that someone started a project and decided to make it collaborative, receiving feedback from others, allowing them to take part in the project's evolution through ideas and code. And most people don't make their living with open source as a full-time job, so committers are very likely using their free time to help shape a library they use.
 That being said, a good portion of your applications points to someone else's work, someone who was trying to fix something for themselves or for the community, even when they didn't have to do so.
