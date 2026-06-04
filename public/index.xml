@@ -6,28 +6,28 @@
     <description>Recent content on cunhazera</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <managingEditor>email@example.com (cunhazera dev blog)</managingEditor>
-    <webMaster>email@example.com (cunhazera dev blog)</webMaster>
-    <lastBuildDate>Sun, 26 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <managingEditor>cunha.gabriel919@gmail.com (Gabriel)</managingEditor>
+    <webMaster>cunha.gabriel919@gmail.com (Gabriel)</webMaster>
+    <lastBuildDate>Thu, 04 Jun 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Giving back: relevant open source contributions and where to start</title>
       <link>http://localhost:1313/post/open-source/</link>
-      <pubDate>Sun, 26 Apr 2026 00:00:00 +0000</pubDate><author>email@example.com (cunhazera dev blog)</author>
+      <pubDate>Thu, 04 Jun 2026 00:00:00 +0000</pubDate><author>cunha.gabriel919@gmail.com (Gabriel)</author>
       <guid>http://localhost:1313/post/open-source/</guid>
-      <description>&lt;p&gt;A starting point for open source contribution&lt;/p&gt;</description>
+      <description>&lt;p&gt;You probably already noticed it, but most libraries and tools that you use to build your applications are open source. Which means that someone started a project and decided to make it collaborative, receiving feedback from others, allowing them to take part in the project&amp;rsquo;s evolution through ideas and code. And most people don&amp;rsquo;t make their living with open source as a full-time job, so committers are very likely using their free time to help shape a library they use.&#xA;That being said, a good portion of your applications points to someone else&amp;rsquo;s work, someone who was trying to fix something for themselves or for the community, even when they didn&amp;rsquo;t have to do so.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Working remotely from the office</title>
       <link>http://localhost:1313/post/remote-from-office/</link>
-      <pubDate>Sun, 26 Apr 2026 00:00:00 +0000</pubDate><author>email@example.com (cunhazera dev blog)</author>
+      <pubDate>Sun, 26 Apr 2026 00:00:00 +0000</pubDate><author>cunha.gabriel919@gmail.com (Gabriel)</author>
       <guid>http://localhost:1313/post/remote-from-office/</guid>
-      <description>&lt;p&gt;My thoughts on remote work, office and how important it was to me to be connected with other engineers&lt;/p&gt;</description>
+      <description>&lt;p&gt;My thoughts on remote work, office and how important it was to me to be connected with other engineers&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve been working remotely since the pandemic. Actually, that was a few months before the first lockdown, when I started collaborating with a different team, in the same company, but from a different city. I was the only person from the team in Joinville, so it made sense to stay at home.&lt;/p&gt;</description>
     </item>
     <item>
       <title>About</title>
       <link>http://localhost:1313/about/</link>
-      <pubDate>Sun, 18 Jan 2026 00:00:00 +0000</pubDate><author>email@example.com (cunhazera dev blog)</author>
+      <pubDate>Sun, 18 Jan 2026 00:00:00 +0000</pubDate><author>cunha.gabriel919@gmail.com (Gabriel)</author>
       <guid>http://localhost:1313/about/</guid>
       <description>&lt;p&gt;Hey, there! I&amp;rsquo;m Gabriel, a software engineer, with over 10 years of experience, focused on backend development with JVM-languages.&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;m particularly interested in building applications with Java, Spring/Quarkus and Hibernate.&lt;/p&gt;&#xA;&lt;p&gt;I contribute to &#xA;&lt;a href=&#34;https://github.com/Open-J-Proxy/ojp/&#34;&gt;OJP&lt;/a&gt;&#xA; and I &lt;del&gt;vibe coded&lt;/del&gt; created &#xA;&lt;a href=&#34;https://cunhazera.com/mkd&#34;&gt;mkd&lt;/a&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;If you want to connect with me, follow/add me in my socials:&lt;/p&gt;&#xA;&lt;div id=&#34;tweet-2013048283841630652&#34;&gt;&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;qme&#34; dir=&#34;ltr&#34;&gt;💻 &lt;a href=&#34;https://t.co/dcyMtqt8w8&#34;&gt;https://t.co/dcyMtqt8w8&lt;/a&gt;&lt;br&gt;🔗 &lt;a href=&#34;https://t.co/HRQdqJ9EDi&#34;&gt;https://t.co/HRQdqJ9EDi&lt;/a&gt;&lt;/p&gt;&amp;mdash; Gabriel Cunha (@cunhazera) &lt;a href=&#34;https://twitter.com/cunhazera/status/2013048283841630652?ref_src=twsrc%5Etfw&#34;&gt;January 19, 2026&lt;/a&gt;&lt;/blockquote&gt;&#xA;&#xA;&lt;/div&gt;&#xA;    &lt;script&gt;&#xA;      (function () {&#xA;        var el = document.getElementById(&#39;tweet-2013048283841630652&#39;);&#xA;        var loaded = false;&#xA;        new IntersectionObserver(function (entries, obs) {&#xA;          if (entries[0].isIntersecting &amp;&amp; !loaded) {&#xA;            loaded = true;&#xA;            var s = document.createElement(&#39;script&#39;);&#xA;            s.src = &#39;https://platform.twitter.com/widgets.js&#39;;&#xA;            s.async = true;&#xA;            document.head.appendChild(s);&#xA;            obs.disconnect();&#xA;          }&#xA;        }).observe(el);&#xA;      })();&#xA;    &lt;/script&gt;&#xA;&lt;p&gt;Is there anything I can help? Consulting, mentorship, just a quick chat about tech and career? &#xA;&lt;a href=&#34;https://calendly.com/cunhazera/30min&#34;&gt;Book a time&lt;/a&gt;&#xA; and let&amp;rsquo;s talk!&lt;/p&gt;</description>
     </item>

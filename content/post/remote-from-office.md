@@ -6,7 +6,6 @@ description: The benefits of a remote/office work
 ---
 
 My thoughts on remote work, office and how important it was to me to be connected with other engineers
-<!--more-->
 
 
 

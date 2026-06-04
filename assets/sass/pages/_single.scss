@@ -70,6 +70,15 @@
   margin: 2.5em 0;
 }
 
+.postDescription {
+  margin: 0 0 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid v.$border;
+  color: v.$text;
+  font-size: 13px;
+  font-style: italic;
+}
+
 .postMetadata {
   font-family: v.$fontCode;
   font-size: 12px;

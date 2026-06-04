@@ -1,13 +1,9 @@
 ---
 author: cunhazera
 title: "Giving back: relevant open source contributions and where to start"
-date: 2026-04-26
+date: 2026-06-04
 description: A starting point for open source contribution
 ---
-
-
-A starting point for open source contribution
-<!--more-->
 
 
 
