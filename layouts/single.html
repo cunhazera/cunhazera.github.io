@@ -5,6 +5,9 @@
 {{ define "main" }}
 <div class="postWrapper">
     <h1>{{ .Title }}</h1>
+    {{ if .Description }}
+    <p class="postSubtitle">{{ .Description }}</p>
+    {{ end }}
 
     {{/* Master switch */}}
     {{ $showMetadata := true }}
@@ -40,9 +43,6 @@
 
     {{ if $showMetadata }}
     <section class="postMetadata">
-        {{ if .Description }}
-            <p class="postDescription">{{ .Description }}</p>
-        {{ end }}
         <dl>
             {{ if and $showTags (.GetTerms "tags") }}
                 {{ partial "taxonomy/tags.html" (.GetTerms "tags") }}
