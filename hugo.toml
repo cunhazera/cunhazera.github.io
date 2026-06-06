@@ -38,7 +38,7 @@ user = "cunhazera"
 
   [params.styles]
     color = "purple"
-hostname = "com"
+hostname = "blog"
 
 # You can configure external links to open in new tabs by adding this parameter
 openLinksInNewTab = true
@@ -54,6 +54,8 @@ showTags = true           # Show tags on post page
 showAuthors = true        # Show authors on post page
 showCategories = true     # Show categories on post page
 
+
+  footerHtml = "© 2026 Gabriel Cunha"
 
   [params.author]
     name = "Gabriel Cunha"

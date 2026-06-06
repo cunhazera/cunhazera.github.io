@@ -11,8 +11,14 @@
   @include v.primary-color;
   text-decoration: none;
   font-family: v.$fontHeader;
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 700;
+}
+
+.postListItem:hover .postTitle {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
 }
 
 .postHeader {
@@ -23,12 +29,19 @@
 }
 
 .postListItem {
+  position: relative;
   padding: 20px 24px;
   border: 1px solid v.$border;
   border-radius: 8px;
   margin-bottom: 12px;
   background: transparent;
   transition: border-color 0.15s, background 0.15s;
+}
+
+.postListLink::after {
+  content: '';
+  position: absolute;
+  inset: 0;
 }
 
 .postListItem:hover {
