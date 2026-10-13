@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <title>
+Reducing Java docker image with jlink and jdeps | Gabriel Cunha
+</title>
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A real-world example reducing OJP image size by ~40%">
+
+<meta name="generator" content="Hugo 0.161.1">
+
+
+<link rel="canonical" href="http://localhost:1313/post/lean-image-ojp/" >
+
+
+
+
+<link href="/css/style.min.d7e8a41382bc0efc87ce9fc406f399f70d14d87abc9039b033cc4ac1ce2f1859.css" rel="stylesheet">
+
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Reducing Java docker image with jlink and jdeps">
+<meta property="og:description" content="A real-world example reducing OJP image size by ~40%">
+<meta property="og:url" content="https://localhost:1313/post/lean-image-ojp/">
+<meta property="og:site_name" content="cunhazera">
+<meta property="og:image" content="https://localhost:1313/images/og-social.jpg">
+<meta property="article:published_time" content="2026-06-12T00:00:00Z">
+<meta property="article:modified_time" content="2026-06-12T00:00:00Z">
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Reducing Java docker image with jlink and jdeps">
+<meta name="twitter:description" content="A real-world example reducing OJP image size by ~40%">
+<meta name="twitter:site" content="@cunhazera">
+<meta name="twitter:image" content="https://localhost:1313/images/og-social.jpg">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FCC2WJGLRP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-FCC2WJGLRP');
+</script>
+
+
+
+</head>
+
+<body>
+
+    <div class="flexWrapper">
+        <header class="headerWrapper">
+    <div class="header">
+        <div>
+            <a class="terminal" href="/">
+                <span>cunhazera@ ~ $</span>
+            </a>
+        </div>
+        <input class="side-menu" type="checkbox" id="side-menu">
+        <label class="hamb" for="side-menu"><span class="hamb-line"></span></label>
+        <nav class="headerLinks">
+            <ul>
+                
+                <li>
+                    <a href="http://localhost:1313/about" title="" >
+                        ~/about</a>
+                </li>
+                
+                <li>
+                    <a href="http://localhost:1313/blog" title="" >
+                        ~/blog</a>
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="content">
+            <main class="main">
+                
+<div class="postWrapper">
+    <h1>Reducing Java docker image with jlink and jdeps</h1>
+    
+    <p class="postSubtitle">A real-world example reducing OJP image size by ~40%</p>
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    <section class="postMetadata">
+        <dl>
+            
+            
+            
+            
+                <dt>published</dt>
+                 
+                 
+                 <dd><time datetime="2026-06-12">2026-06-12</time></dd>
+            
+            
+                <dt>reading time</dt>
+                <dd>1 minute</dd>
+            
+        </dl>
+    </section>
+    
+    <div>
+        <p>Java is known for having large artifacts and also large Docker images.</p>
+
+    </div>
+</div>
+
+            </main>
+        </div>
+
+
+        <footer class="footer">
+    
+        <span>
+            © 2026 Gabriel Cunha, Built with
+            <a href="https://gohugo.io" class="footerLink">Hugo</a> and
+            <a href="https://github.com/LordMathis/hugo-theme-nightfall" class="footerLink">Nightfall</a> theme
+        </span>
+    
+</footer>
+    </div>
+
+</body>
+
+</html>
