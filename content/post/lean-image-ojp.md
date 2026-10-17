@@ -68,18 +68,18 @@ void localImageStartsSuccessfully() {
 }
 ```
 
-That alone does not guarantee that nothing is missing, especially because we build this image ignoring possible missing module errors and warnings by passing the `--ignore-missing-deps` parameter to `jlink`.
+That alone does not guarantee that nothing is missing, especially because we build this image ignoring possible missing module errors and warnings by passing the `--ignore-missing-deps` parameter to `jlink`. However, 70% of all integration tests run against the lean docker image, which means that more paths are being covered and if there were something missing, these other tests would catch it.
 
 ## The result
 
-Considering that the main goal was just to reduce the image size, if you compare version 0.4.1 (the last version using JRE) with 0.4.2 or even 1.0.0, you can see that the image size went from 146MB to 92MB, which represents a nearly 37% decrease. A significant result with little effort, since we're building a custom gRPC server with a custom JRE that saves a few MBs by only including what is necessary to run the app.
+Considering that the main goal was just to reduce the image size, if you compare version 0.4.1-beta (the last version using JRE) with 0.4.22-beta or even 1.0.0, you can see that the image size went from 146MB to 92MB, which represents a nearly 37% decrease. A significant result with little effort, since we're building a custom gRPC server with a custom JRE that saves a few MBs by only including what is necessary to run the app.
 Now, those who run OJP Server with Docker will notice an image significantly smaller, which puts Java applications back in the game, and having resources like jlink and jdeps is really useful for those who want more control over their generated images.
 
 ## Lessons learned
 
 Shifting from a stable image to a custom one has brought a few interesting things to be aware of:
  - Java defaults _almost_ never help: default JVM configs, de facto Java images, none of these will deliver the most optimized result. If you're aiming to keep a lean image or small artifacts, you have to deliberately work on these topics. Picking what you want to optimize and setting a goal helps you avoid the feeling that it's never good enough.
- - Nothing guarantees that no errors will be thrown: there might be gaps in the process of identifying required modules versus the modules we actually need. The integration test written for this case, which starts the server, does not mean that everything is absolutely fine. We'd need to perform more calls to the server to actually run the code and be 100% sure. But this is a calculated risk, since no errors have been found since.
+ - The obvious choice is not always the best: going after existing images, looking for a smaller image was the first and most obvious choice, but moving to a different approach was the key point to achieve great results. It completely changed how we build the image, of course, but it paid off. Java modularization with `jlink` and `jdeps` weas not the original plan, what taught us to go beyond the obvious.
 
 ## Conclusion
 
