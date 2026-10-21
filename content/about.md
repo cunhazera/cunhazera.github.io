@@ -1,9 +1,9 @@
 +++
 title = "About"
-description = "Welcome to my personal blog!"
 date = "2026-01-18"
 aliases = ["about-us", "about-hugo", "contact"]
 author = "Gabriel da Cunha"
+showMetadata = false
 +++
 
 Hey, there! I'm Gabriel, a software engineer, with over 10 years of experience, focused on backend development with JVM-languages.
