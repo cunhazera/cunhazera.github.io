@@ -1,0 +1,43 @@
+{{/*
+  Builds a 1200x630 social preview card for a page: site prompt, page title,
+  and a footer with the author's avatar, name and domain.
+  Static pieces live in assets/images (og-base.png, og-text-layer.png,
+  og-avatar.jpg, og-mask.png).
+  Returns the generated image resource.
+*/}}
+{{- $title := .Title -}}
+{{- if .IsHome -}}
+  {{- $title = .Site.Params.author.homeTitle | default .Site.Title -}}
+{{- end -}}
+
+{{- $bold := resources.Get "fonts/JetBrainsMono-Bold.ttf" -}}
+{{- $regular := resources.Get "fonts/JetBrainsMono-Regular.ttf" -}}
+
+{{/* Same prompt as the site header */}}
+{{- $prompt := printf "%s@%s ~ $" .Site.Params.user (.Site.Params.hostname | default "") -}}
+{{- $domain := urls.Parse .Site.BaseURL -}}
+
+{{/* Shorter titles get a bigger size; long ones still fit in four lines */}}
+{{- $titleSize := 56 -}}
+{{- if le (len $title) 40 }}{{ $titleSize = 76 }}{{ else if le (len $title) 70 }}{{ $titleSize = 64 }}{{ end -}}
+
+{{/* The title is drawn on its own 1040px-wide layer so it wraps with an even 80px margin */}}
+{{- $titleLayer := resources.Get "images/og-text-layer.png" | images.Filter
+  (images.Text $title (dict "font" $bold "size" $titleSize "color" "#e6edf3" "x" 0 "y" 0 "linespacing" 12))
+-}}
+
+{{- $avatar := resources.Get "images/og-avatar.jpg" -}}
+{{- $mask := resources.Get "images/og-mask.png" -}}
+{{- $avatar = $avatar | images.Filter (images.Mask $mask) (images.Process "resize 112x112 png") -}}
+
+{{- $filters := slice
+  (images.Text $prompt (dict "font" $regular "size" 28 "color" "#a78bfa" "x" 80 "y" 72))
+  (images.Overlay $titleLayer 80 136)
+  (images.Overlay $avatar 80 466)
+  (images.Text .Site.Params.author.name (dict "font" $bold "size" 30 "color" "#c9d1d9" "x" 216 "y" 474))
+  (images.Text $domain.Host (dict "font" $regular "size" 26 "color" "#6e7681" "x" 216 "y" 520))
+-}}
+
+{{- $card := resources.Get "images/og-base.png" | images.Filter $filters -}}
+{{- $card = $card | resources.Copy (printf "images/og/%s.png" (.RelPermalink | strings.TrimPrefix "/" | strings.TrimSuffix "/" | default "home" | replaceRE "/" "-")) -}}
+{{- return $card -}}
