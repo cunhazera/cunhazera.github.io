@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Talks on cunhazera</title>
+    <link>http://localhost:1313/talks/</link>
+    <description>Recent content in Talks on cunhazera</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <managingEditor>cunha.gabriel919@gmail.com (Gabriel Cunha)</managingEditor>
+    <webMaster>cunha.gabriel919@gmail.com (Gabriel Cunha)</webMaster>
+    <lastBuildDate>Mon, 01 Sep 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/talks/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rethinking database access with Jakarta Data</title>
+      <link></link>
+      <pubDate>Mon, 01 Sep 2025 00:00:00 +0000</pubDate><author>cunha.gabriel919@gmail.com (Gabriel Cunha)</author>
+      <guid></guid>
+      <description></description>
+    </item>
+    <item>
+      <title>From Java to Kotlin: Similar Roots, Different Perspectives</title>
+      <link></link>
+      <pubDate>Thu, 21 Nov 2024 00:00:00 +0000</pubDate><author>cunha.gabriel919@gmail.com (Gabriel Cunha)</author>
+      <guid></guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

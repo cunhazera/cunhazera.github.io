@@ -11,11 +11,11 @@
     <lastBuildDate>Fri, 12 Jun 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Reducing Java docker image with jlink and jdeps</title>
+      <title>Reducing OJP Java docker image with jlink and jdeps</title>
       <link>http://localhost:1313/post/lean-image-ojp/</link>
       <pubDate>Fri, 12 Jun 2026 00:00:00 +0000</pubDate><author>cunha.gabriel919@gmail.com (Gabriel Cunha)</author>
       <guid>http://localhost:1313/post/lean-image-ojp/</guid>
-      <description>&lt;p&gt;Java is known for having large artifacts and also large Docker images.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Java has a reputation for being slow, resource-consuming, and also having large artifacts. From the dependencies used in the project to generated jar files and docker images, everything looks too big compared to the binaries produced by other modern languages. Part of the complaint is fair: if optimizing your application is not on your radar, you will certainly get what the default offers, which is not the best result you can get out of your Java project. Narrowing it down to Docker, Java developers must just go ahead and pick the first available image with the JDK version they need. Again, the default or the most obvious choice is not always the best. Picking the first option you find just because it makes your application run will impact your development, and sometimes you don&amp;rsquo;t even consider the consequences for your cycle to build, push, and deploy your artifacts.&#xA;That&amp;rsquo;s exactly the scenario we had on OJP (if you don&amp;rsquo;t know what it is, here&amp;rsquo;s a good article to learn more). Back in the day, when the OJP server was still using Java 21/22, &lt;code&gt;eclipse-temurin:24-jre&lt;/code&gt; was the official image being used, which has ~300mb uncompressed, and would produce a final artifact of 146MB. OJP image used to be generated using a plugin called &lt;code&gt;jib&lt;/code&gt;. It means that the image was produced by a gradle plugin and the content of the image would be determined in the plugin itself as part of the project build lifecycle. It&amp;rsquo;s worth noting that OJP was already on &lt;code&gt;jre&lt;/code&gt; and not &lt;code&gt;jdk&lt;/code&gt; Java image. Therefore, the #1 docker image optimization hint wouldn&amp;rsquo;t help, since the project was relying on a smaller image and that still wasn&amp;rsquo;t enough.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Giving back: relevant open source contributions and where to start</title>
@@ -37,6 +37,20 @@
       <pubDate>Sun, 18 Jan 2026 00:00:00 +0000</pubDate><author>cunha.gabriel919@gmail.com (Gabriel Cunha)</author>
       <guid>http://localhost:1313/about/</guid>
       <description>&lt;p&gt;Hey, there! I&amp;rsquo;m Gabriel, a software engineer, with over 10 years of experience, focused on backend development with JVM-languages.&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;m particularly interested in building applications with Java, Spring/Quarkus and Hibernate.&lt;/p&gt;&#xA;&lt;p&gt;I contribute to &#xA;&lt;a href=&#34;https://github.com/Open-J-Proxy/ojp/&#34;&gt;OJP&lt;/a&gt;&#xA; and I &lt;del&gt;vibe coded&lt;/del&gt; created &#xA;&lt;a href=&#34;https://cunhazera.com/mkd&#34;&gt;mkd&lt;/a&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;If you want to connect with me, follow/add me in my socials:&lt;/p&gt;&#xA;&lt;div id=&#34;tweet-2013048283841630652&#34;&gt;&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;qme&#34; dir=&#34;ltr&#34;&gt;💻 &lt;a href=&#34;https://t.co/dcyMtqt8w8&#34;&gt;https://t.co/dcyMtqt8w8&lt;/a&gt;&lt;br&gt;🔗 &lt;a href=&#34;https://t.co/HRQdqJ9EDi&#34;&gt;https://t.co/HRQdqJ9EDi&lt;/a&gt;&lt;/p&gt;&amp;mdash; Gabriel Cunha (@cunhazera) &lt;a href=&#34;https://twitter.com/cunhazera/status/2013048283841630652?ref_src=twsrc%5Etfw&#34;&gt;January 19, 2026&lt;/a&gt;&lt;/blockquote&gt;&#xA;&#xA;&lt;/div&gt;&#xA;    &lt;script&gt;&#xA;      (function () {&#xA;        var el = document.getElementById(&#39;tweet-2013048283841630652&#39;);&#xA;        var loaded = false;&#xA;        new IntersectionObserver(function (entries, obs) {&#xA;          if (entries[0].isIntersecting &amp;&amp; !loaded) {&#xA;            loaded = true;&#xA;            var s = document.createElement(&#39;script&#39;);&#xA;            s.src = &#39;https://platform.twitter.com/widgets.js&#39;;&#xA;            s.async = true;&#xA;            document.head.appendChild(s);&#xA;            obs.disconnect();&#xA;          }&#xA;        }).observe(el);&#xA;      })();&#xA;    &lt;/script&gt;&#xA;&lt;p&gt;Is there anything I can help? Consulting, mentorship, just a quick chat about tech and career? &#xA;&lt;a href=&#34;https://calendly.com/cunhazera/30min&#34;&gt;Book a time&lt;/a&gt;&#xA; and let&amp;rsquo;s talk!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Rethinking database access with Jakarta Data</title>
+      <link></link>
+      <pubDate>Mon, 01 Sep 2025 00:00:00 +0000</pubDate><author>cunha.gabriel919@gmail.com (Gabriel Cunha)</author>
+      <guid></guid>
+      <description></description>
+    </item>
+    <item>
+      <title>From Java to Kotlin: Similar Roots, Different Perspectives</title>
+      <link></link>
+      <pubDate>Thu, 21 Nov 2024 00:00:00 +0000</pubDate><author>cunha.gabriel919@gmail.com (Gabriel Cunha)</author>
+      <guid></guid>
+      <description></description>
     </item>
   </channel>
 </rss>
