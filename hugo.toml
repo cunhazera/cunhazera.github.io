@@ -26,8 +26,12 @@ pagerSize = 3
 [menu]
   [[menu.header]]
     name = "blog"
-    weight = 0
+    weight = 2
     url = "blog"
+  [[menu.header]]
+    name = "talks"
+    weight = 3
+    url = "talks"
   [[menu.header]]
     name = "about"
     weight = 1

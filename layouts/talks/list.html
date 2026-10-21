@@ -1,0 +1,73 @@
+{{ define "title"}}
+{{ .Title }} | {{ .Site.Params.author.name }}
+{{ end }}
+
+{{ define "main" }}
+
+<div>
+  <div class="listHeader">
+    <h1>{{ .Title }}</h1>
+  </div>
+
+  {{ with .Content }}
+  <div class="listContent">
+    {{- . -}}
+  </div>
+  {{ end }}
+
+  <div role="list">
+    {{ range .RegularPages.ByDate.Reverse }}
+      {{/* Accepts a full YouTube URL (watch, youtu.be, shorts, embed, live) or a bare video ID.
+           A "t" parameter (seconds, or 1h2m3s) becomes the video's start time. */}}
+      {{ $talk := . }}
+      {{ $id := "" }}
+      {{ $start := 0 }}
+      {{ with .Params.youtube }}
+        {{ $u := urls.Parse . }}
+        {{ $id = or ($u.Query.Get "v") (path.Base $u.Path) }}
+        {{ with $u.Query.Get "t" }}
+          {{ if findRE `^\d+s?$` . }}
+            {{ $start = int (strings.TrimSuffix "s" .) }}
+          {{ else }}
+            {{ range findRESubmatch `(\d+)([hms])` . }}
+              {{ $n := int (index . 1) }}
+              {{ $unit := index . 2 }}
+              {{ $start = add $start (cond (eq $unit "h") (mul $n 3600) (cond (eq $unit "m") (mul $n 60) $n)) }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+      <div class="talkListItem" role="listitem">
+        {{ with $id }}
+        <div class="talkVideo">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/{{ . }}{{ with $start }}?start={{ . }}{{ end }}"
+            title="{{ $talk.Title }}"
+            loading="lazy"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen></iframe>
+        </div>
+        {{ end }}
+        <div class="talkBody">
+          {{ if $id }}
+          <a class="talkLink" href="https://www.youtube.com/watch?v={{ $id }}{{ with $start }}&t={{ . }}s{{ end }}" target="_blank" rel="noopener">
+            <span class="postTitle">{{ .Title }}</span>
+          </a>
+          {{ else }}
+          <span class="postTitle">{{ .Title }}</span>
+          {{ end }}
+          <div class="postExcerpt">{{ .Description }}</div>
+          {{ $layout := .Site.Params.displayDateFormat | default "2006-01-02" }}
+          {{ $iso := .Date | time.Format "2006-01-02" }}
+          <time class="postDate" datetime="{{ $iso }}">{{ .Date | time.Format $layout }}</time>
+        </div>
+      </div>
+    {{ else }}
+      <div class="listContent">No talks yet.</div>
+    {{ end }}
+  </div>
+
+</div>
+
+{{ end }}
